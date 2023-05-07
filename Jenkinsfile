@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+    DOCKERHUB_CREDENTIALS = credentials('Jenkins')
   }
   stages {
     stage('Build') {
@@ -12,7 +12,7 @@ pipeline {
     }
     stage('Login') {
       steps {
-        sh 'echo Passwd@123# | docker login -u vvgadhave --password-stdin'
+        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
       }
     }
     stage('Push') {
