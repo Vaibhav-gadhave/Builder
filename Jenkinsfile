@@ -7,7 +7,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'docker build -t jenkins-docker-hub .'
-        sh 'docker tag jenkins-docker-hub vvgadhave/jenkins-docker .'
+        sh 'docker tag jenkins-docker-hub vvgadhave/jenkins-docker'
       }
     }
     stage('Login') {
