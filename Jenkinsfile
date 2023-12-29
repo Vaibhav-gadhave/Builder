@@ -6,8 +6,7 @@ pipeline {
   stages {
     stage('Building Docker Image') {
       steps {
-        sh 'docker build -t ubuntu-gui:1.0 .'
-        sh 'docker tag jenkins-docker-hub vvgadhave/jenkins-docker'
+        sh 'docker build -t vvgadhave/ubuntu-gui:v1 .'
       }
     }
     stage('Login Into Docker') {
@@ -17,7 +16,7 @@ pipeline {
     }
     stage('Push Image to Hub') {
       steps {
-        sh 'docker push vvgadhave/Ubuntu-GUI:1.0'
+        sh 'docker push vvgadhave/ubuntu-gui:v1'
       }
     }
   }
