@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Building Docker Image') {
       steps {
-        sh 'docker build -t Ubuntu-GUI:1.0 .'
+        sh 'docker build -t ubuntu-gui:1.0 .'
         sh 'docker tag jenkins-docker-hub vvgadhave/jenkins-docker'
       }
     }
